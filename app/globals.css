@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+/*
+ * Palet Bintang Petir Indonesia: biru tua sebagai warna struktur dan kuning
+ * "kilat" sebagai satu-satunya aksen, di atas kanvas putih kebiruan.
+ * Struktur dan komponennya sama dengan situs membrane PT Sinar Atap Mandiri;
+ * hanya warnanya yang dibedakan.
+ *
+ * Nama token (brand, sun, dan seterusnya) sengaja disamakan dengan situs
+ * membrane supaya komponen bisa dipakai bergantian di kedua proyek.
+ */
+@theme {
+  --color-ink: #0e1628;
+  --color-ink-soft: #1e293b;
+  --color-muted: #5a6476;
+  --color-canvas: #f2f4f8;
+  --color-paper: #fbfcfe;
+  --color-line: #dde2ec;
+  --color-brand: #1d3b8f;
+  --color-brand-dark: #142a66;
+  --color-brand-soft: #dbe5fa;
+  --color-sun: #f7c22a;
+  --color-sun-soft: #fdf0c4;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@theme inline {
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  letter-spacing: -0.011em;
+}
+
+/*
+ * Tombol pill + lingkaran panah. Pill berganti ke warna lingkaran saat
+ * hover sementara lingkarannya memudar, jadi yang tersisa hanya panah yang
+ * berputar dari timur laut ke timur. Warna dikirim lewat custom property
+ * karena tombol ini dipakai dengan pasangan warna berbeda di tiap section.
+ */
+.arrow-btn {
+  background-color: var(--btn-bg);
+  transition: background-color 300ms ease, color 300ms ease, transform 300ms ease;
+}
+
+.arrow-btn:hover {
+  background-color: var(--btn-accent);
+}
+
+.arrow-btn-circle {
+  background-color: var(--btn-accent);
+  transition: background-color 300ms ease;
+}
+
+.arrow-btn:hover .arrow-btn-circle {
+  background-color: transparent;
+}
+
+.arrow-btn-icon {
+  transition: transform 300ms ease;
+}
+
+.arrow-btn:hover .arrow-btn-icon {
+  transform: rotate(45deg);
+}
+
+/*
+ * Muncul saat di-scroll. Dikendalikan komponen <Reveal>, yang menyalakan
+ * data-visible sekali ketika elemen masuk layar.
+ */
+.reveal {
+  opacity: 0;
+  translate: 0 28px;
+  transition:
+    opacity 800ms var(--ease-out-expo),
+    translate 800ms var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal[data-visible="true"] {
+  opacity: 1;
+  translate: 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    translate: none;
+    transition: none;
+  }
+}
