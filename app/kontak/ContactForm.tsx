@@ -1,6 +1,7 @@
 "use client";
 
 import { Send } from "lucide-react";
+import { trackConversion } from "@/lib/analytics";
 import { systems } from "@/lib/packages";
 import { site, waLink } from "@/lib/site";
 
@@ -25,6 +26,9 @@ export default function ContactForm() {
       ...optional("Pesan", "pesan"),
     ];
 
+    // Form ini membuka WhatsApp lewat window.open, bukan tautan, jadi tidak
+    // tertangkap pelacak klik di GoogleAds.tsx; konversinya dicatat di sini.
+    trackConversion("whatsapp");
     // waLink meng-encode teksnya, jadi isian seperti "&" atau "#" tidak
     // memotong pesan.
     window.open(waLink(lines.join("\n")), "_blank", "noopener,noreferrer");

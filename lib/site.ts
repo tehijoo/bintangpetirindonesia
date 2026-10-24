@@ -27,6 +27,19 @@ export const site = {
    * selama false, kartu paket menampilkan "Tanya harga" alih-alih angka.
    */
   showPrices: false,
+  /*
+   * Google Ads (akun 377-061-4221). Label konversi diambil dari Google Ads →
+   * Sasaran → Konversi → (nama tindakan) → Penyiapan tag; bentuknya bagian
+   * setelah garis miring di send_to: 'AW-18534957943/<label>'. Selama label
+   * kosong, klik tidak dilaporkan sebagai konversi.
+   */
+  googleAds: {
+    id: "AW-18534957943",
+    conversions: {
+      whatsapp: "",
+      phone: "",
+    },
+  },
 } as const;
 
 export function waLink(message?: string) {
