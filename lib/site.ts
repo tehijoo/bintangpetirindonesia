@@ -36,8 +36,10 @@ export const site = {
   googleAds: {
     id: "AW-18534957943",
     conversions: {
-      whatsapp: "",
-      phone: "",
+      // Tindakan konversi "Klik WhatsApp" (kategori Kontak)
+      whatsapp: "-RPjCIu2pagdEPeGlIZF",
+      // Tindakan konversi "Klik Telepon" (kategori Kontak)
+      phone: "UQjgCI62pagdEPeGlIZF",
     },
   },
 } as const;
