@@ -32,11 +32,12 @@ export const photoCategories: { id: PhotoCategory; label: string }[] = [
 ];
 
 /*
- * Dokumentasi diambil dari situs Tema Grounding Petir.
- * TODO: tambahkan atau ganti dengan dokumentasi proyek Bintang Petir sendiri.
+ * galeri-6.jpg adalah dokumentasi Bintang Petir Indonesia sendiri; foto
+ * lainnya masih dari situs Tema Grounding Petir.
+ * TODO: ganti sisanya dengan dokumentasi proyek Bintang Petir sendiri.
  */
 export const photos: Photo[] = [
-  { id: "6", src: g6, label: "Pemasangan Terminal", category: "pemasangan", alt: "Teknisi memasang head terminal penangkal petir di puncak tiang" },
+  { id: "6", src: g6, label: "Pemasangan Tiang", category: "pemasangan", alt: "Teknisi berhelm merah memanjat tiang galvanis penangkal petir bertali penyangga" },
   { id: "11", src: g11, label: "Terminal di Atap", category: "terminal", alt: "Penangkal petir terpasang di atap rumah dengan latar permukiman" },
   { id: "2", src: g2, label: "Tes Grounding", category: "grounding", alt: "Earth tester menunjukkan hasil pengukuran tahanan grounding" },
   { id: "7", src: g7, label: "Pemasangan di Tower", category: "pemasangan", alt: "Teknisi naik tower rangka besi untuk memasang penangkal petir" },
